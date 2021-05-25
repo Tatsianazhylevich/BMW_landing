@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+export function accordeon(){
     const featureLinkElems = document.querySelectorAll('.feature__link');
     const featureSubElems = document.querySelectorAll('.feature-sub');
 
@@ -17,9 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 featureSubElems[index].classList.remove('hidden');
                 btn.classList.add('feature__link_active');
             }
-
-        })
-    })
-
-
-})
+        });
+    });
+}

@@ -1,24 +1,29 @@
-const moreElems = document.querySelectorAll('.more');
-const modalElem = document.querySelector('.modal');
+import {enableScroll, disableScroll} from './blockScrolled.js';
 
-const openModal = () => {
-    modalElem.classList.remove('hidden');
-    disableScroll();
-};
 
-const closeModal = () => {
-    modalElem.classList.add('hidden');
-    enableScroll();
-};
 
-moreElems.forEach(elem => {
-    elem.addEventListener('click', openModal);
-})
+export function modal() {
+    const openModal = () => {
+        modalElem.classList.remove('hidden');
+        disableScroll();
+    };
+    
+    const closeModal = () => {
+        modalElem.classList.add('hidden');
+        enableScroll();
+    };
+    const moreElems = document.querySelectorAll('.more');
+    const modalElem = document.querySelector('.modal');
 
-modalElem.addEventListener('click', (event) => {
-    const target = event.target;
-    if (target.classList.contains('overlay') || 
-        target.classList.contains('modal__close')) {
-            closeModal();
-        }
-})
+    moreElems.forEach(elem => {
+        elem.addEventListener('click', openModal);
+    })
+
+    modalElem.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.classList.contains('overlay') || 
+            target.classList.contains('modal__close')) {
+                closeModal();
+            }
+    })
+}
